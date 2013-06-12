@@ -163,6 +163,7 @@ textarea {
 
 body {
   margin: 0;
+  overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -199,12 +200,7 @@ a:hover {
   float: left;
   margin-left: 20px;
 }
-#login{
-    
-    width: 420px;
-    margin-top: 15px;
-    margin-left: 250px;
-}
+
 .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
@@ -214,7 +210,7 @@ a:hover {
 .neogen{
                     color: #333;
 	font-family: helvetica,arial, sans-serif;
-	font-size:22px;
+	font-size:28px;
 	line-height:26px;
 	font-weight:normal;
 	font-style: italic;

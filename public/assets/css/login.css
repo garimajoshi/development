@@ -9,26 +9,31 @@
 		#header{
                     
                     background-color:#5aaf5b;
-                    height: 180px;
+                    height: 230px;
 			width: 100%;
-			top: 0;
+			margin-top: 0px;
 		}
                 #strip{
                    
                     background-color: #468847;
                     height:10px;
                     width:100%;
-                    z-index: 13;
+                    z-index: 100;
                 }
                 #footer{
-                  position:fixed;
-                   bottom: 0;
+                  position:relative;
+                  margin-top: 20px;
                     background-color: #5aaf5b;
-                        height:200px;
+                        height:500px;
 			width: 100%;
-			margin-top: 210px;
+			
                 }
-                
+                #login{
+                    position:relative;
+                    width: 420px;
+                    margin-top: 10px;
+                    margin-left: 250px;
+}
 		#header .row{
 			width: 940px;
 			margin: 0 auto;
