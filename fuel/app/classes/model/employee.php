@@ -5,6 +5,7 @@ class Model_Employee extends Model
 {
 	protected static $_properties = array(
 		'id',
+		'employee_id',
 		'first_name',
 		'last_name',
 		'phone',
@@ -65,18 +66,15 @@ class Model_Employee extends Model
 		$val->add_field('first_name', 'First Name', 'required|max_length[255]');
 		$val->add_field('last_name', 'Last Name', 'required|max_length[255]');
 		$val->add_field('phone', 'Phone', 'required|match_pattern[^([+]?91-[0-9]{5}-[0-9]{5})$]|max_length[255]');
-		$val->add_field('address', 'Address', 'required|max_length[255]');
+		$val->add_field('address', 'Address', 'max_length[255]');
 		$val->add_field('city', 'City', 'required|max_length[255]');
 		$val->add_field('state', 'State', 'required|max_length[255]');
-		$val->add_field('pincode', 'Pincode', 'required|match_pattern[^([0-9]{6})$]|valid_string[numeric]');
+		$val->add_field('pincode', 'Pincode', 'match_pattern[^([0-9]{6})$]|valid_string[numeric]');
 		$val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
 		$val->add_field('joining_date', 'Joining Date', 'required');
-		$val->add_field('leaving_date', 'Leaving Date', 'required');
+		$val->add_field('leaving_date', 'Leaving Date');
 		$val->add_field('date_of_birth', 'Date Of Birth', 'required');
-		$val->add_field('sex', 'Sex', 'required');
-		$val->add_field('marital_status', 'Marital Status', 'required');
-		$val->add_field('activity_status', 'Activity Status', 'required');
-
+		
 		return $val;
 	}
 

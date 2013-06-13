@@ -8,6 +8,7 @@ class Create_employees
 	{
 		\DBUtil::create_table('employees', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
+			'employee_id' => array('constraint' => 11, 'type' => 'int', 'unsigned' => true),
 			'first_name' => array('constraint' => 255, 'type' => 'varchar'),
 			'last_name' => array('constraint' => 255, 'type' => 'varchar'),
 			'phone' => array('constraint' => 255, 'type' => 'varchar'),

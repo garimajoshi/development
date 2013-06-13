@@ -5,7 +5,6 @@ class Model_Leave extends Model
 {
 	protected static $_properties = array(
 		'id',
-		'employee_id',
 		'date_of_leave',
 		'reason',
 		'type',
@@ -26,12 +25,12 @@ class Model_Leave extends Model
 
 	protected static $_table_name = 'leaves';
 	
-	protected static $_belongs_to = array('employees' => array(
+	protected static $_belongs_to = array('employee' => array(
     		'model_to' => 'Model_Employee',
-        	'key_from' => 'employee_id',
-        	'key_to' => 'id',
+        	'key_from' => 'id',
+        	'key_to' => 'employee_id',
         	'cascade_save' => true,
-        	'cascade_delete' => true,
+        	'cascade_delete' => false,
     	));
 		
 	public static function validate($factory)

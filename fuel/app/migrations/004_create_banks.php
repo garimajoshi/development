@@ -8,7 +8,6 @@ class Create_banks
 	{
 		\DBUtil::create_table('banks', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
-			'employee_id' => array('constraint' => 11, 'type' => 'int', 'unsigned' => true),
 			'account_no' => array('constraint' => 255, 'type' => 'varchar'),
 			'account_type' => array('constraint' => '"current","saving"', 'type' => 'enum'),
 			'branch' => array('constraint' => 255, 'type' => 'varchar'),
