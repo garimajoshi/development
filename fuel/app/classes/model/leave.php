@@ -1,11 +1,10 @@
 <?php
 use Orm\Model;
 
-class Model_Leafe extends Model
+class Model_Leave extends Model
 {
 	protected static $_properties = array(
 		'id',
-		'employee_id',
 		'date_of_leave',
 		'reason',
 		'type',
@@ -24,12 +23,21 @@ class Model_Leafe extends Model
 		),
 	);
 
+	protected static $_table_name = 'leaves';
+	
+	protected static $_belongs_to = array('employee' => array(
+    		'model_to' => 'Model_Employee',
+        	'key_from' => 'id',
+        	'key_to' => 'employee_id',
+        	'cascade_save' => true,
+        	'cascade_delete' => false,
+    	));
+		
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
-		$val->add_field('employee_id', 'Employee Id', 'required|valid_string[numeric]');
 		$val->add_field('date_of_leave', 'Date Of Leave', 'required');
-		$val->add_field('reason', 'Reason', 'required|max_length[255]');
+		$val->add_field('reason', 'Reason', 'max_length[255]');
 		$val->add_field('type', 'Type', 'required');
 
 		return $val;

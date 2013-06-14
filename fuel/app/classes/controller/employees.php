@@ -97,8 +97,7 @@ class Controller_Employees extends Controller_Template{
 			$employee->date_of_birth = Input::post('date_of_birth');
 			$employee->sex = Input::post('sex');
 			$employee->marital_status = Input::post('marital_status');
-			$employee->activity_status = Input::post('activity_status');
-
+			
 			if ($employee->save())
 			{
 				Session::set_flash('success', 'Updated employee #' . $id);
@@ -128,8 +127,7 @@ class Controller_Employees extends Controller_Template{
 				$employee->date_of_birth = $val->validated('date_of_birth');
 				$employee->sex = $val->validated('sex');
 				$employee->marital_status = $val->validated('marital_status');
-				$employee->activity_status = $val->validated('activity_status');
-
+				
 				Session::set_flash('error', $val->error());
 			}
 
@@ -141,6 +139,33 @@ class Controller_Employees extends Controller_Template{
 
 	}
 
+	public function action_archive($id = null)
+	{
+		is_null($id) and Response::redirect('employees');
+		
+		if ($employee = Model_Employee::find($id))
+		{
+			$employee->activity_status = Input::post('activity_status');
+
+			if ($employee->save())
+			{
+				Session::set_flash('success', 'Archived employee #' . $id);
+			}
+			else
+			{
+				Session::set_flash('error', 'Could not archive employee #' . $id);
+			}
+		}
+		
+		else
+		{
+			Session::set_flash('error', 'Could not find employee #'.$id);
+		}
+
+		Response::redirect('employees');
+		
+	}
+	
 	public function action_delete($id = null)
 	{
 		is_null($id) and Response::redirect('employees');
@@ -160,6 +185,5 @@ class Controller_Employees extends Controller_Template{
 		Response::redirect('employees');
 
 	}
-
-
+	
 }
