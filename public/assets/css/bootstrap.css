@@ -163,7 +163,7 @@ textarea {
 
 body {
   margin: 0;
-  overflow: hidden;
+  overflow: scroll;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -207,16 +207,6 @@ a:hover {
   
   width: 940px;
 }
-.neogen{
-                    color: #333;
-	font-family: helvetica,arial, sans-serif;
-	font-size:28px;
-	line-height:26px;
-	font-weight:normal;
-	font-style: italic;
-	font-family: Georgia, Times New Roman, Times, serif;
-	max-width:290px;
-                }
 
 .span12 {
   width: 940px;
