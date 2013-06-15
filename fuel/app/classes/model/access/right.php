@@ -23,7 +23,7 @@ class Model_Access_Right extends \Orm\Model {
         ),
     );
     protected static $_has_one = array(
-        'users' => array(
+        'user' => array(
             'key_from' => 'user_id',
             'key_to' => 'id',
             'cascade_save' => true,

@@ -25,7 +25,7 @@ class Model_User extends Model
 		),
 	);
 
-	protected static $_belongs_to = array('access_rights' => array(
+	protected static $_belongs_to = array('access_right' => array(
         	'key_from' => 'user_id',
         	'key_to' => 'id',
     	));
