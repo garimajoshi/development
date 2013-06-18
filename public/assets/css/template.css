@@ -1,3 +1,5 @@
+
+
 #header{
          /*background-color: #dceee9;*/            
         background: -webkit-linear-gradient(top, #acd6c2, #9dd6ba);
@@ -35,9 +37,11 @@
 .logout li a { display:block; font-weight: 700; margin-right: 5px; padding:5px 5px; border-left:1px; border-right:1px solid #117c55; color:#efe; text-decoration:none; }
 
 #container{
+        position:fixed;
         margin-top: -950px;
-        width:500px;
-        margin-left: 350px;
+        width:1000px;
+        height:100px;
+        margin-left: 250px;
 }
 #border{
     
@@ -82,7 +86,7 @@ ul li{ list-style:disc;}
 
 /* All menu links on hover or focus */
 #nav a:hover, #nav a:focus{
-	background-color:#58af58s;
+	background-color:#58af58;
 	color:#FFF;
 }
 #nav li a:hover,
@@ -115,6 +119,18 @@ ul li{ list-style:disc;}
 	display:block;
 	list-style:none;
 	position:relative;
+        background: #014464;
+	background: -moz-linear-gradient(top, #0272a7, #013953);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953));
+	
+	
+	-moz-box-shadow:inset 0px 0px 1px #edf9ff;
+	-webkit-box-shadow:inset 0px 0px 1px #edf9ff;
+	box-shadow:inset 0px 0px 1px #edf9ff;
+
+	
+	text-align: right;
+	display:block;
 }
 
 
@@ -126,6 +142,17 @@ ul li{ list-style:disc;}
 	margin-top: 200px;
 	width:186px;
 	z-index:5;
+        
+	/* Background color and gradients */
+	
+	background: #014464;
+	background: -moz-linear-gradient(top, #0272a7, #013953);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953));
+	
+	
+	-moz-box-shadow:inset 0px 0px 1px #edf9ff;
+	-webkit-box-shadow:inset 0px 0px 1px #edf9ff;
+	box-shadow:inset 0px 0px 1px #edf9ff;
 
 	
 	text-align: right;

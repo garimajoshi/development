@@ -6,7 +6,9 @@
              
    <?php echo Asset::css('bootstrap.css'); ?>
 		<?php echo Asset::css('template.css'); ?>
-		<!--[if IE]>
+		<?php echo Asset::css('styles.css'); ?>
+                
+               <!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
