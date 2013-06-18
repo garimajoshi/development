@@ -12,6 +12,7 @@
 			</div>
             </div>
 		<div class="control-group">
+<<<<<<< HEAD
                     <div class="even">
 			<?php echo Form::label('Name', 'name', array('class'=>'control-label')); ?>
                 
@@ -45,6 +46,21 @@
 			<div class="controls">
 				<?php echo Form::input('marital_status', Input::post('marital_status', isset($employee) ? $employee->marital_status : ''), array('class' => 'span4', 'placeholder'=>'Marital status')); ?>
                         </div>
+=======
+			<?php echo Form::label('First Name', 'first_name', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('first_name', Input::post('first_name', isset($employee) ? $employee->first_name : ''), array('class' => 'span4', 'placeholder'=>'First Name')); ?>
+
+			</div>
+		</div>
+                <div class="control-group">
+			<?php echo Form::label('Last Name', 'last_name', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('last_name', Input::post('last_name', isset($employee) ? $employee->last_name : ''), array('class' => 'span4', 'placeholder'=>'Last Name')); ?>
+
+>>>>>>> 2ff2bf073ca146a4c4b4182307d90c7ef55ca320
 			</div>
 		</div>
             
@@ -129,6 +145,30 @@
 			<div class="controls">
 				<?php echo Form::input('leaving_date', Input::post('leaving_date', isset($employee) ? $employee->leaving_date : ''), array('class' => 'span4', 'placeholder'=>'Leaving date')); ?>
                         </div>
+			</div>
+		</div>
+		<div class="control-group">
+			<?php echo Form::label('Date of birth', 'date_of_birth', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('date_of_birth', Input::post('date_of_birth', isset($employee) ? $employee->date_of_birth : ''), array('class' => 'span4', 'placeholder'=>'Date of birth')); ?>
+
+			</div>
+		</div>
+		<div class="control-group">
+			<?php echo Form::label('Sex', 'sex', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('sex', Input::post('sex', isset($employee) ? $employee->sex : ''), array('class' => 'span4', 'placeholder'=>'Sex')); ?>
+
+			</div>
+		</div>
+		<div class="control-group">
+			<?php echo Form::label('Marital status', 'marital_status', array('class'=>'control-label')); ?>
+
+			<div class="controls">
+				<?php echo Form::input('marital_status', Input::post('marital_status', isset($employee) ? $employee->marital_status : ''), array('class' => 'span4', 'placeholder'=>'Marital status')); ?>
+
 			</div>
 		</div>
 		

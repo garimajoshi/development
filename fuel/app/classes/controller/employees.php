@@ -3,7 +3,7 @@ class Controller_Employees extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['employees'] = Model_Employee::find('all');
+		$data['employees'] = Model_Employee::find('all', array('where' => array('activity_status' => "active")));
 		$this->template->title = "Employees";
 		$this->template->content = View::forge('employees/index', $data);
 
@@ -33,7 +33,8 @@ class Controller_Employees extends Controller_Template{
 			if ($val->run())
 			{
 				$employee = Model_Employee::forge(array(
-					'name' => Input::post('name'),
+					'first_name' => Input::post('first_name'),
+                                        'last_name' => Input::post('last_name'),
 					'phone' => Input::post('phone'),
 					'address' => Input::post('address'),
 					'city' => Input::post('city'),
@@ -45,7 +46,7 @@ class Controller_Employees extends Controller_Template{
 					'date_of_birth' => Input::post('date_of_birth'),
 					'sex' => Input::post('sex'),
 					'marital_status' => Input::post('marital_status'),
-					'activity_status' => Input::post('activity_status'),
+                                        'activity_status' => "active",
 				));
 
 				if ($employee and $employee->save())
@@ -85,7 +86,8 @@ class Controller_Employees extends Controller_Template{
 
 		if ($val->run())
 		{
-			$employee->name = Input::post('name');
+			$employee->first_name = Input::post('first_name');
+                        $employee->last_name = Input::post('last_name');
 			$employee->phone = Input::post('phone');
 			$employee->address = Input::post('address');
 			$employee->city = Input::post('city');
@@ -97,6 +99,7 @@ class Controller_Employees extends Controller_Template{
 			$employee->date_of_birth = Input::post('date_of_birth');
 			$employee->sex = Input::post('sex');
 			$employee->marital_status = Input::post('marital_status');
+                        $employee->activity_status = "active";
 			
 			if ($employee->save())
 			{
@@ -115,7 +118,8 @@ class Controller_Employees extends Controller_Template{
 		{
 			if (Input::method() == 'POST')
 			{
-				$employee->name = $val->validated('name');
+				$employee->first_name = Input::post('first_name');
+                                $employee->last_name = Input::post('last_name');
 				$employee->phone = $val->validated('phone');
 				$employee->address = $val->validated('address');
 				$employee->city = $val->validated('city');
@@ -127,7 +131,8 @@ class Controller_Employees extends Controller_Template{
 				$employee->date_of_birth = $val->validated('date_of_birth');
 				$employee->sex = $val->validated('sex');
 				$employee->marital_status = $val->validated('marital_status');
-				
+				$employee->activity_status = "active";
+                                
 				Session::set_flash('error', $val->error());
 			}
 
@@ -145,7 +150,7 @@ class Controller_Employees extends Controller_Template{
 		
 		if ($employee = Model_Employee::find($id))
 		{
-			$employee->activity_status = Input::post('activity_status');
+			$employee->activity_status = "inactive";
 
 			if ($employee->save())
 			{
@@ -154,6 +159,33 @@ class Controller_Employees extends Controller_Template{
 			else
 			{
 				Session::set_flash('error', 'Could not archive employee #' . $id);
+			}
+		}
+		
+		else
+		{
+			Session::set_flash('error', 'Could not find employee #'.$id);
+		}
+
+		Response::redirect('employees');
+		
+	}
+        
+        public function action_restore($id = null)
+	{
+		is_null($id) and Response::redirect('employees');
+		
+		if ($employee = Model_Employee::find($id))
+		{
+			$employee->activity_status = "active";
+
+			if ($employee->save())
+			{
+				Session::set_flash('success', 'Restored employee #' . $id);
+			}
+			else
+			{
+				Session::set_flash('error', 'Could not restore employee #' . $id);
 			}
 		}
 		
